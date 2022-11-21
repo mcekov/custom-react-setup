@@ -1,21 +1,19 @@
-import "../styles/index.scss";
+import '../styles/index.scss'
 
-import Recipes from "./Recipes";
+import Recipes from './Recipes'
 
 const App = () => {
-	return (
-		<>
-			<section className="hero">
-				<main>
-					<section>
-						<h1>Oh, hai react</h1>
-					</section>
-				</main>
+  return (
+    <>
+      <section className="hero"></section>
+      <main>
+        <section>
+          <h1>Oh, hai react</h1>
+        </section>
+        <Recipes />
+      </main>
+    </>
+  )
+}
 
-				<Recipes />
-			</section>
-		</>
-	);
-};
-
-export default App;
+export default App
