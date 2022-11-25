@@ -1,76 +1,83 @@
-const path = require("path");
+const path = require('path')
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-let mode = "development";
+let mode = 'development'
 
-process.env.NODE_ENV === "production"
-	? (mode = "production")
-	: (mode = "development");
+process.env.NODE_ENV === 'production'
+  ? (mode = 'production')
+  : (mode = 'development')
 
 module.exports = {
-	mode: mode,
+  mode: mode,
 
-	output: {
-		path: path.resolve(__dirname, "dist"),
-		assetModuleFilename: "images/[hash][ext][query]",
-	},
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'images/[hash][ext][query]',
+  },
 
-	module: {
-		rules: [
-			{
-				test: /\.(png|jpe?g|gif|svg)$/i,
-				type: "asset",
-				/* parser: {
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset',
+        /* parser: {
 					dataUrlCondition: {
 						maxSize: 30 * 1024,
 					},
 				}, */
-			},
-			{
-				test: /\.(s[ac]|c)ss$/i,
-				use: [
-					{
-						loader: MiniCssExtractPlugin.loader,
-						options: {
-							publicPath: "",
-						},
-					},
-					"css-loader",
-					"postcss-loader",
-					"sass-loader",
-				],
-			},
-			{
-				test: /\.jsx?$/,
-				exclude: /node_modules/,
-				use: {
-					loader: "babel-loader",
-				},
-			},
-		],
-	},
+      },
+      {
+        test: /\.(s[ac]|c)ss$/i,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '',
+            },
+          },
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.(js|ts)x?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader',
+        },
+      },
+    ],
+  },
 
-	plugins: [
-		new CleanWebpackPlugin(),
-		new MiniCssExtractPlugin(),
-		new HtmlWebpackPlugin({
-			template: "./public/index.html",
-		}),
-	],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    }),
+  ],
 
-	resolve: {
-		extensions: [".js", ".jsx"],
-	},
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
+  },
 
-	devtool: "source-map",
-	devServer: {
-		static: {
-			directory: path.join(__dirname, "dist"),
-		},
-		// Default is true
-		/* hot: true, */
-	},
-};
+  devtool: 'source-map',
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    // Default is true
+    /* hot: true, */
+  },
+}

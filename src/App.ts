@@ -1,6 +1,7 @@
-import '../styles/index.scss'
+import React from 'react'
+import './styles/index.scss'
 
-import Recipes from './Recipes'
+import Recipes from './components/Recipes'
 
 const App = () => {
   return (
