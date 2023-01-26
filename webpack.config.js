@@ -3,7 +3,8 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
 let mode = 'development'
 
 process.env.NODE_ENV === 'production'
@@ -61,6 +62,7 @@ module.exports = {
   },
 
   plugins: [
+    new BundleAnalyzerPlugin({ analyzerMode: process.env.STATS || 'disabled' }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
