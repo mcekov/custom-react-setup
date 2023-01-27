@@ -11,7 +11,7 @@ This repo contains the following basic setup for a React project.
 - React with the new automatic importing functionality supported in React 17+ through Babel.
 - React Fast Refresh in Webpack: the new hot module loading tool supported by the React team.
 - Outputting or bundling images with the new Webpack 5 Asset Module type.
-- Webpack bundle visualization with
+- Webpack bundle visualization with webpack-bundle-analyzer
 
 # Usage
 

@@ -1,7 +1,7 @@
 {
   "author": "M. Tsekov",
   "version": "1.0.0",
-  "description": "",
+  "description": "Custom Webpack 5 and react 18 setup",
   "private": true,
   "scripts": {
     "start": "cross-env webpack server",

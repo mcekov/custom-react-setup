@@ -1,11 +1,12 @@
 const path = require('path')
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin
+
 let mode = 'development'
+const port = 3000
 
 process.env.NODE_ENV === 'production'
   ? (mode = 'production')
@@ -67,6 +68,7 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
+      favicon: './public/favicon.ico',
     }),
   ],
 
@@ -76,9 +78,12 @@ module.exports = {
 
   devtool: 'source-map',
   devServer: {
+    port: port,
     static: {
       directory: path.join(__dirname, 'dist'),
+      // directory: path.join(__dirname, 'public'),
     },
+
     // Default is true
     /* hot: true, */
   },
