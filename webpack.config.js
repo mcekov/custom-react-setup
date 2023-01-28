@@ -6,7 +6,6 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin
 
 let mode = 'development'
-const port = 3000
 
 process.env.NODE_ENV === 'production'
   ? (mode = 'production')
@@ -53,7 +52,7 @@ module.exports = {
         },
       },
       {
-        test: /\.tsx?$/,
+        test: /\.(ts)x?$/,
         exclude: /node_modules/,
         use: {
           loader: 'ts-loader',
@@ -78,7 +77,7 @@ module.exports = {
 
   devtool: 'source-map',
   devServer: {
-    port: port,
+    port: process.env.PORT,
     static: {
       directory: path.join(__dirname, 'dist'),
       // directory: path.join(__dirname, 'public'),

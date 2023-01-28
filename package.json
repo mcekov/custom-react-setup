@@ -4,7 +4,7 @@
   "description": "Custom Webpack 5 and react 18 setup",
   "private": true,
   "scripts": {
-    "start": "cross-env webpack server",
+    "start": "cross-env PORT=3000 webpack server --progress",
     "watch": "webpack --watch",
     "build": "cross-env NODE_ENV=production webpack",
     "build-dev": "webpack",
