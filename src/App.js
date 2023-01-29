@@ -2,8 +2,7 @@ import React from 'react'
 import './styles/index.scss'
 import './App.css'
 
-import logo from './logo.svg'
-import HelloWorld from './components/HelloWorld'
+import logo from './images/logo.svg'
 
 const App = () => {
   return (
