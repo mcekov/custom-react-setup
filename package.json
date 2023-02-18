@@ -9,7 +9,8 @@
     "build": "cross-env NODE_ENV=production webpack",
     "build-dev": "webpack",
     "stats": "cross-env STATS=server webpack --json build-stats.json",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "server": "json-server -p 3001 --watch db.json"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
@@ -37,6 +38,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "json-server": "^0.17.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
