@@ -17,6 +17,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'images/[hash][ext][query]',
+    publicPath: '/',
   },
 
   module: {
@@ -66,8 +67,10 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
+      filename: 'index.html',
       template: './public/index.html',
       favicon: './public/favicon.ico',
+      manifest: './public/manifest.json',
     }),
   ],
 
@@ -77,13 +80,12 @@ module.exports = {
 
   devtool: 'source-map',
   devServer: {
-    port: process.env.PORT,
+    port: process.env.PORT || 3000,
+    open: true,
+    hot: true,
+    historyApiFallback: true,
     static: {
       directory: path.join(__dirname, 'dist'),
-      // directory: path.join(__dirname, 'public'),
     },
-
-    // Default is true
-    /* hot: true, */
   },
 }
